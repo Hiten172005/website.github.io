@@ -1,0 +1,313 @@
+body.reset-mode {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    background-color: #D7D2CB;
+    color: black;
+}
+
+body.light-mode{
+    background-color: #333;
+    color: aqua;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+body.dark-mode{
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+.navbar {
+    justify-content: space-between;
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.3s; 
+}
+
+body.light-mode .navbar {
+    background-color: #343a40; 
+}
+
+body.dark-mode .navbar {
+    background-color: #1a1a1a; 
+}
+
+.navbar button, .navbar a {
+    margin: 0 15px;
+    background-color: #9C8D7A;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+body.light-mode .navbar button,
+body.light-mode .navbar a {
+    background-color: #6c757d; 
+}
+
+body.dark-mode .navbar button,
+body.dark-mode .navbar a {
+    background-color: #495057; 
+}
+
+.navbar button:hover,
+.navbar a:hover {
+    background-color: #7A6954;
+}
+
+body.light-mode .navbar button:hover,
+body.light-mode .navbar a:hover {
+    background-color: #495057; 
+}
+
+body.dark-mode .navbar button:hover,
+body.dark-mode .navbar a:hover {
+    background-color: #333; 
+}
+
+.background-image {
+    background-image: url('profile.jpeg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.content {
+    animation: typing 6s backwards;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.section hr {
+    border: 1px solid #343a40;
+    margin: 20px 0;
+}
+
+.section pre {
+    font-size: 18px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.skills pre {
+    white-space: pre-wrap;
+}
+
+.section img{
+    height: 100px;
+    margin-top: 10px;
+}
+
+.mode-button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.mode-button:hover {
+    background-color: #0056b3;
+}
+
+.animated-image {
+    transition: transform 0.3s ease-in-out;
+    height: 100px;
+}
+
+.animated-image:hover {
+    transform: scale(1.1);
+}
+
+.footer{
+    padding: 20px;
+    text-align: center;
+    background-color: #343a40;
+    color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar button,
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .section h1 {
+        font-size: 2em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+
+    .section img {
+        height: 80px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .navbar button,
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .section h1 {
+        font-size: 1.8em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+
+    .section img {
+        height: 80px;
+    }
+
+    .section pre{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+
+    .navbar button,
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .section h1 {
+        font-size: 2em;
+    }
+
+    .section p {
+        font-size: 1.2em;
+    }
+
+    .section img {
+        height: 80px;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+
+    .navbar button,
+    .navbar a {
+        margin: 15px 0px;
+        display: inline-flex;
+    }
+
+    .section h1 {
+        font-size: 2.5em;
+    }
+
+    .section p {
+        font-size: 1.2em;
+    }
+
+    .section img {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .background-image {
+        background-image: url('profile-2.jpeg');
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+/* Add animation to the content in each section */
+.section p, .section pre, .section img {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.section.active p, .section.active pre, .section.active img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add animation to the skills section */
+.skills img.animated-image {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.skills img.animated-image:hover {
+    transform: scale(1.1);
+}
+
+.skills img.animated-image.active {
+    transform: scale(1.1);
+}
+
+/* Add animation to the social section */
+#social img.animated-image {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#social img.animated-image:hover {
+    transform: scale(1.1);
+}
+
+#social img.animated-image.active {
+    transform: scale(1.1);
+}
+

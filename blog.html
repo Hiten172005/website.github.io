@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        article {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        article:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: #343a40;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .comment-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .comment-input button {
+            background-color: #343a40;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .likes {
+            margin-top: 20px;
+            color: #343a40;
+        }
+
+        .like-btn {
+            background-color: #343a40;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            animation: pulse 1s infinite;
+        }
+
+        .heart-btn {
+            background-color: transparent;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background-color 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .heart-btn:hover {
+            background-color: pink;
+            color: white;
+            transform: scale(1.2);
+            background-color: pink;
+            color: white;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .comment-input input, .comment-input button, button {
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .comment-input input:hover, .comment-input button:hover, button:hover {
+            background-color: #1e2124;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+
+        .footer{
+            padding: 20px;
+            text-align: center;
+            background-color: #343a40;
+            color: #fff;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Blogs</h1>
+    </header>
+
+    <article>
+        <h2>Blog 1: Exciting Journey</h2>
+        <p>The inaugural year of college unfolds as an exhilarating odyssey, marked by newfound freedom, diverse friendships, and academic exploration. From the first nervous steps onto campus to the thrill of late-night conversations and collaborative learning, every moment shapes this transformative chapter. Balancing independence and responsibility, students navigate a mosaic of experiences — from eye-opening lectures to extracurricular adventures. Challenges become stepping stones, fostering personal growth and resilience. The first year is more than a syllabus; it's a tapestry of discovery, weaving memories, and lifelong connections, setting the stage for a future enriched by the lessons learned in this exciting journey.</p>
+
+        <div class="comments">
+            <h3>Comments:</h3>
+            <div id="comments1"></div>
+            <div class="comment-input">
+                <input type="text" id="commentInput1" placeholder="Add a comment">
+                <button onclick="addComment(1)">Add Comment</button>
+            </div>
+            <button onclick="resetCommentsAndLikes(1)">Reset Comments and Likes</button>
+        </div>
+
+        <div class="likes">
+            <p>Likes: <span id="likeCount1">0</span></p>
+            <button class="heart-btn" onclick="like(1)">&hearts;</button>
+        </div>
+    </article>
+
+    <article>
+        <h2>Blog 2: Learning Web Development</h2>
+        <p>Web development, the art of crafting digital experiences, is a dynamic and ever-evolving field. From coding the backbone with HTML, CSS, and JavaScript to utilizing frameworks like React and Vue.js, developers create seamless and visually appealing websites. As technology advances, so do the tools, fostering innovation and creativity. With a focus on responsive design, user experience, and performance optimization, web developers shape the online landscape. Whether building static sites or dynamic web applications, this coding journey is a continuous exploration of new languages and techniques, ensuring that the digital realm remains vibrant, interactive, and user-friendly.</p>
+
+        <div class="comments">
+            <h3>Comments:</h3>
+            <div id="comments2"></div>
+            <div class="comment-input">
+                <input type="text" id="commentInput2" placeholder="Add a comment">
+                <button onclick="addComment(2)">Add Comment</button>
+            </div>
+            <button onclick="resetCommentsAndLikes(2)">Reset Comments and Likes</button>
+        </div>
+
+        <div class="likes">
+            <p>Likes: <span id="likeCount2">0</span></p>
+            <button class="heart-btn" onclick="like(2)">&hearts;</button>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2024 My Blogs</p>
+
+    <script>
+        
+        window.addEventListener('load', function () {
+            loadFromStorage(1);
+            loadFromStorage(2);
+        });
+
+        function addComment(blogId) {
+            var commentInput = document.getElementById(`commentInput${blogId}`);
+            var commentsContainer = document.getElementById(`comments${blogId}`);
+
+            var commentText = commentInput.value.trim();
+            if (commentText !== "") {
+                var commentNumber = commentsContainer.children.length + 1;
+
+                var commentDiv = document.createElement("div");
+                commentDiv.textContent = commentNumber + '. ' + commentText;
+                commentDiv.classList.add("fade-in");
+                commentsContainer.appendChild(commentDiv);
+                commentInput.value = "";
+
+                saveToStorage(blogId, commentsContainer.innerHTML, 'comments');
+                
+
+                updateCommentCount(blogId);
+            }
+        }
+
+        function updateCommentCount(blogId) {
+            var commentsContainer = document.getElementById(`comments${blogId}`);
+            var commentCountElement = document.getElementById(`commentCount${blogId}`);
+            var commentCount = commentsContainer.children.length;
+            commentCountElement.textContent = commentCount;
+
+
+            saveToStorage(blogId, commentCount, 'commentCount');
+        }
+
+        function like(blogId) {
+            var likeCountElement = document.getElementById(`likeCount${blogId}`);
+            var currentLikes = parseInt(likeCountElement.textContent);
+            likeCountElement.textContent = currentLikes + 1;
+
+
+            saveToStorage(blogId, currentLikes + 1, 'likes');
+        }
+
+        function saveToStorage(blogId, data, key) {
+            localStorage.setItem(`${key}${blogId}`, JSON.stringify(data));
+        }
+
+        function loadFromStorage(blogId) {
+            var commentsContainer = document.getElementById(`comments${blogId}`);
+            var commentCountElement = document.getElementById(`commentCount${blogId}`);
+            var likeCountElement = document.getElementById(`likeCount${blogId}`);
+
+
+            var comments = localStorage.getItem(`comments${blogId}`);
+            var likes = localStorage.getItem(`likes${blogId}`);
+            var commentCount = localStorage.getItem(`commentCount${blogId}`);
+
+            if (comments) {
+                commentsContainer.innerHTML = JSON.parse(comments);
+            }
+
+            if (likes) {
+                likeCountElement.textContent = JSON.parse(likes);
+            }
+
+            if (commentCount) {
+                commentCountElement.textContent = JSON.parse(commentCount);
+            }
+        }
+
+        function resetCommentsAndLikes(blogId) {
+
+            var commentsContainer = document.getElementById(`comments${blogId}`);
+            var likeCountElement = document.getElementById(`likeCount${blogId}`);
+            commentsContainer.innerHTML = '';
+            likeCountElement.textContent = '0';
+
+
+            localStorage.removeItem(`comments${blogId}`);
+            localStorage.removeItem(`likes${blogId}`);
+            localStorage.removeItem(`commentCount${blogId}`);
+        }
+    </script>
+
+</body>
+</html>
